@@ -12,8 +12,6 @@ const Hello = ({ click }) => <div>
   <button onClick={click}>
     click
   </button>
-
-
 </div>;
 
 Hello.propTypes = {

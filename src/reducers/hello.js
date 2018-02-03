@@ -9,7 +9,6 @@ const todos = handleActions({
     });
   },
   ['hello/get/success'](state, action) {
-    alert(action.payload.data);
     return state.merge({
       loading: action.payload,
     });
