@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zj1926/react_starter_lite.git"
+    "url": "git+https://github.com/im6/react_starter_lite.git"
   },
   "author": "ZJ Guo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zj1926/react_starter_lite/issues"
+    "url": "https://github.com/im6/react_starter_lite/issues"
   },
-  "homepage": "https://github.com/zj1926/react_starter_lite#readme",
+  "homepage": "https://github.com/im6/react_starter_lite#readme",
   "devDependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
