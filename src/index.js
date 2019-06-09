@@ -6,15 +6,14 @@ setTimeout(() => {
 
   const btnElem = document.querySelector('button');
   btnElem.addEventListener('click', () => {
-    var xhr = new XMLHttpRequest();
+    const xhr = new XMLHttpRequest();
     xhr.open('GET', '/hello');
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-          alert(xhr.responseText)
-        }
-        else {
-          alert('error');
-        }
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        alert(xhr.responseText);
+      } else {
+        alert('error');
+      }
     };
     xhr.send();
   });
