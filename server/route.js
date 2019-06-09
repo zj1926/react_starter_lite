@@ -1,11 +1,8 @@
-'use strict';
 const express = require('express'),
   router = express.Router(),
-  ctr = require("./ctr");
+  ctr = require("./middleware");
 
 router.get('/hello', ctr.hello);
-router.post('/auth', ctr.auth);
-router.post('/todos', ctr.todos);
-router.get('/*', ctr.static);
+router.get('/todos', ctr.todos);
 
 module.exports = router;
