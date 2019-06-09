@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --inline --progress --profile --colors --config ./webpack/develop.js",
+    "start": "webpack-dev-server --progress --colors --config ./webpack/develop.js",
     "build": "webpack --config ./webpack/production.js",
     "server": "node ./server/index.js",
     "lint": "eslint --ext .js,.jsx src/"

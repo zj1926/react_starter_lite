@@ -21,6 +21,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        exclude: /node_modules/,
         use: [
           'style-loader',
           {
@@ -32,6 +33,6 @@ module.exports = {
           'sass-loader',
         ],
       },
-    ]
+    ],
   },
 };

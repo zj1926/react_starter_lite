@@ -15,7 +15,7 @@ const client = {
   entry,
   output: {
     path: path.join(__dirname, '../temp'),
-    filename: '[name].js',
+    filename: 'bundle.js',
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -45,6 +45,7 @@ const client = {
         secure: false,
       },
     },
+    open: 'Google Chrome',
   },
 };
 
