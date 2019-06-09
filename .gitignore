@@ -1,6 +1,4 @@
 node_modules/
 .idea/
 npm-debug.log
-temp/
-public/
-!public/index.html
+dist/
