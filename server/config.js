@@ -1,9 +1,5 @@
 const { env } = process;
-const isDev = env.NODE_ENV === 'dev';
-
-module.exports = {
-  isDev,
-  port: 3001,
-  ip: '127.0.0.1',
-  publicDir: isDev ? 'temp/public' : 'dist',
-};
+export const isDev = env.NODE_ENV === 'development';
+export const port = 3000;
+export const ip = '127.0.0.1';
+export const publicDir = isDev ? 'local/public' : 'dist/public';

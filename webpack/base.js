@@ -4,7 +4,7 @@ module.exports = {
     extensions: ['.js'],
   },
   entry: [
-    './src/index.js',
+    './client/index.js',
   ],
   fileModules: {
     rules: [

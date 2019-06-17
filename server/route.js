@@ -1,9 +1,12 @@
-const express = require('express');
+import express from 'express';
+import {
+  hello,
+  todos,
+} from './middleware';
 
 const router = express.Router();
-const ctr = require('./middleware');
 
-router.get('/hello', ctr.hello);
-router.get('/todos', ctr.todos);
+router.get('/hello', hello);
+router.get('/todos', todos);
 
-module.exports = router;
+export default router;

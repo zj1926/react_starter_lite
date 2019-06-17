@@ -1,10 +1,12 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const nodeExternals = require('webpack-node-externals');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ServerStartPlugin = require('./plugins/ServerStartPlugin');
 const { fileModules, resolve, entry } = require('./base');
 
-const HOST = '127.0.0.1';
-const PORT = '3000';
+const appEnvs = {
+  NODE_ENV: 'development',
+};
 
 const client = {
   watch: true,
@@ -14,39 +16,56 @@ const client = {
   module: fileModules,
   entry,
   output: {
-    path: path.join(__dirname, '../temp'),
+    path: path.join(__dirname, '../local/public'),
     filename: 'bundle.js',
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Dev',
-      template: path.join(__dirname, '../src/template/index.html')
+      title: 'Development',
+      template: path.join(__dirname, '../client/template/index.html'),
     }),
   ],
   watchOptions: {
     ignored: /node_modules/,
   },
-  devServer: {
-    contentBase: './public',
-    // do not print bundle build stats
-    noInfo: true,
-    // enable HMR
-    hot: true,
-    // embed the webpack-dev-server runtime into the bundle
-    inline: true,
-    // serve index.html in place of 404 responses to allow HTML5 history
-    historyApiFallback: true,
-    port: PORT,
-    host: HOST,
-    proxy: {
-      '*': {
-        target: 'http://localhost:3001', // NOTE: your express.js server port number
-        secure: false,
+};
+
+const server = {
+  watch: true,
+  mode: 'development',
+  externals: [nodeExternals()],
+  target: 'node',
+  resolve: {
+    extensions: ['.js'],
+  },
+  entry: [
+    path.join(__dirname, '../server'),
+  ],
+  output: {
+    publicPath: '/',
+    path: path.join(__dirname, '../local'),
+    filename: 'server.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        }],
       },
-    },
-    open: 'Google Chrome',
+    ],
+  },
+  plugins: [
+    new ServerStartPlugin(appEnvs),
+  ],
+  watchOptions: {
+    ignored: /node_modules/,
   },
 };
 
-module.exports = client;
+module.exports = [client, server];

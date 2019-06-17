@@ -5,13 +5,14 @@
 dev
 
 ```sh
-npm start
+npm start # then open localhost:3000
 ```
 
 prod
 
 ```sh
 npm run build
+npm run server # run server in prod mode
 ```
 
 ## Highlight

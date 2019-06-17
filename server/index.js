@@ -1,16 +1,20 @@
 /* eslint strict: 0, no-console: 0 */
-const express = require('express');
-const bodyParser = require('body-parser');
 
-const globalConfig = require('./config');
-const route = require('./route');
+import express from 'express';
+import bodyParser from 'body-parser';
+import route from './route';
+import {
+  publicDir,
+  port,
+  isDev,
+} from './config';
 
 const app = express();
-app.use(express.static(globalConfig.publicDir));
+app.use(express.static(publicDir));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(route);
 
-app.listen(globalConfig.port, () => {
-  console.log(`app is listening to port: ${globalConfig.port}`);
+app.listen(port, () => {
+  console.log(`app(dev: ${isDev}) is listening to port: ${port}`);
 });
