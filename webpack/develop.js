@@ -25,7 +25,7 @@ const client = {
     }),
   ],
   watchOptions: {
-    ignored: /node_modules/
+    ignored: /node_modules/,
   },
   devServer: {
     contentBase: './public',

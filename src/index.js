@@ -1,3 +1,4 @@
+import 'core-js';
 import style from './style.scss';
 
 setTimeout(() => {

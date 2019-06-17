@@ -1,12 +1,12 @@
 
 module.exports = {
-  hello: function(req, res, next){
+  hello: (req, res, next) => {
     res.json({
       status: 'success',
       data: 'hello from server',
     });
   },
-  todos: function(req, res, next){
+  todos: (req, res, next) => {
     res.json({
       status: 'success',
       data: [
