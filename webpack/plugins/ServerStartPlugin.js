@@ -18,7 +18,7 @@ class ServerStartPlugin {
       if (this.child) {
         this.child.kill('SIGTERM');
       }
-      this.child = spawn('node', ['./local/server.js'], {
+      this.child = spawn('node', ['./dist/server.js'], {
         env: Object.assign({
         }, process.env, this.envs),
         silent: false,

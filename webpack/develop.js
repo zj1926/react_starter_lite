@@ -16,7 +16,7 @@ const client = {
   module: fileModules,
   entry,
   output: {
-    path: path.join(__dirname, '../local/public'),
+    path: path.join(__dirname, '../dist/public'),
     filename: 'bundle.js',
   },
   plugins: [
@@ -43,7 +43,7 @@ const server = {
   ],
   output: {
     publicPath: '/',
-    path: path.join(__dirname, '../local'),
+    path: path.join(__dirname, '../dist'),
     filename: 'server.js',
   },
   module: {
