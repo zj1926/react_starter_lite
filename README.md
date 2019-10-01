@@ -1,14 +1,14 @@
-# Template ES6
+# Template for Vanilla ES6 Project
 
-## cli example
+## Quick Start
 
-dev
+### For development
 
 ```sh
-npm start # then open localhost:3000
+npm start # app will be running on localhost:3000
 ```
 
-prod
+### For Production
 
 ```sh
 npm run build
@@ -17,8 +17,8 @@ npm run server # run server in prod mode
 
 ## Highlight
 
-- express.js
-- webpack
-- es2015(es6)
-- scss
-- eslint
+- Express.js
+- Webpack
+- Babel(es6)
+- SCSS
+- ESLint
